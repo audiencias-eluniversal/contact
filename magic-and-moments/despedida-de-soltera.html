@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título principal de la pestaña y vista previa -->
+    <title>Despedida de soltera | Cartagena Magic & Moments</title>
+
+    <!-- Metaetiquetas estándar -->
+    <meta name="description" content="Protege tu hogar y a tu familia: cobertura frente a incendio, daños por agua y tuberías, robo y hurto, fenómenos naturales y asistencia domiciliaria 24/7. Cotiza tu plan.">
+
+    <!-- Open Graph (Facebook, Instagram, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://audiencias-eluniversal.github.io/contact/magic-and-moments/pedida-de-mano.html">
+    <meta property="og:title" content="Pedida de mano | Cartagena Magic & Moments">
+    <meta property="og:description" content="El escenario perfecto para pedir matrimonio existe y está en Cartagena.">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedida de mano | Cartagena Magic & Moments">
+    <meta name="twitter:description" content="El escenario perfecto para pedir matrimonio existe y está en Cartagena.">
+
+    <script src="https://kit.fontawesome.com/940b998748.js" crossorigin="anonymous"></script>
+    <style>
+        /* Estilos para centrar todo en la pantalla */
+        .big-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+        }
+        a {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        a i {
+            margin-right: 8px; /* Espacio entre el icono y el texto */
+            font-size: 18px;
+        }
+        a:hover {
+            background-color: #1ebc5e;
+            color: white;
+            text-decoration: none;
+            transform: scale(1.03);
+        }
+    </style>
+    <script>
+        let seconds = 3; // Tiempo de espera en segundos
+        
+        // Define aquí tu enlace personalizado único
+        const urlDestino = "https://yux.fi/Pedida-de-mano";
+
+        function updateCountdown() {
+            document.getElementById("countdown").innerText = seconds;
+            if (seconds > 0) {
+                seconds--;
+                setTimeout(updateCountdown, 1000); // Llamar cada segundo
+            } else {
+                window.location.href = urlDestino;
+            }
+        }
+
+        window.onload = function() {
+            // Asignar el enlace directamente al botón al cargar
+            document.getElementById("BtnWh").href = urlDestino;
+            updateCountdown(); // Iniciar cuenta regresiva al cargar la página
+        };
+    </script>
+</head>
+<body>
+    <div class="big-container">
+        <div class="container">
+            <h2>Redirigiendo a WhatsApp en <span id="countdown">3</span> segundos...</h2>
+            <p>Si la redirección no ocurre automáticamente, haz clic en el botón.</p>
+            <a id="BtnWh" href="#">
+                <i class="fa-brands fa-whatsapp"></i> Ir a WhatsApp
+            </a>
+        </div>
+    </div>
+</body>
+</html>
