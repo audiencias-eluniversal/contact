@@ -39,6 +39,20 @@ Se mantiene sin cambios: estilos, Font Awesome, cuenta regresiva y el script de 
 
 Nota: páginas anteriores a esta regla pueden no tenerlo todavía; añadirlo la próxima vez que se toquen.
 
+## Regla: evento de contacto (Meta + GoatCounter)
+
+Toda página nueva o actualizada debe registrar el evento de contacto justo antes de redirigir al destino. Referencia: `multydrink/multydrink.html`.
+
+- **Meta:** `fbq('track', 'Contact')` (evento estándar; se ve en la columna "Contactos" de Ads Manager si el pixel está asociado a la cuenta y el evento se atribuye a un anuncio).
+- **GoatCounter:** `goatcounter.count({ path: 'contacto-<producto>-<destino>', title: '...', event: true })`. Ejemplo: `contacto-multydrink-yuxfi`.
+- Ambos se disparan desde una función única (`irAlDestino()`), usada tanto por la cuenta regresiva como por el clic en el botón, con una bandera para no contar dos veces.
+- Se espera 400 ms antes de cambiar `window.location.href` para que los eventos alcancen a enviarse.
+- Cada llamada va en `try/catch` y verifica que `fbq` / `goatcounter` existan, para que un bloqueador no impida la redirección.
+- El evento mide que el usuario fue enviado al destino, no que llegó ni que escribió.
+- Al actualizar una página existente que no lo tenga, agregarlo.
+
+Verificación: Events Manager > Probar eventos (Meta) y pestaña de eventos en GoatCounter.
+
 ## Convenciones
 
 - Idioma: español (`lang="es"`).

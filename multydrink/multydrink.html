@@ -70,19 +70,42 @@
         // Define aquí tu enlace personalizado único
         const urlDestino = "http://yux.fi/Multydrink";
 
+        let yaRedirigido = false;
+
+        // Registra el evento Contact (Meta) y un evento en GoatCounter, y luego redirige
+        function irAlDestino() {
+            if (yaRedirigido) return;
+            yaRedirigido = true;
+
+            try { if (window.fbq) fbq('track', 'Contact'); } catch (e) {}
+            try {
+                if (window.goatcounter && window.goatcounter.count) {
+                    window.goatcounter.count({ path: 'contacto-multydrink-yuxfi', title: 'Contacto Multydrink (yux.fi)', event: true });
+                }
+            } catch (e) {}
+
+            // Pequeña espera para que los eventos alcancen a enviarse antes de salir
+            setTimeout(function() { window.location.href = urlDestino; }, 400);
+        }
+
         function updateCountdown() {
             document.getElementById("countdown").innerText = seconds;
             if (seconds > 0) {
                 seconds--;
                 setTimeout(updateCountdown, 1000); // Llamar cada segundo
             } else {
-                window.location.href = urlDestino;
+                irAlDestino();
             }
         }
 
         window.onload = function() {
             // Asignar el enlace directamente al botón al cargar
-            document.getElementById("BtnWh").href = urlDestino;
+            var btn = document.getElementById("BtnWh");
+            btn.href = urlDestino;
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                irAlDestino();
+            });
             updateCountdown(); // Iniciar cuenta regresiva al cargar la página
         };
     </script>
